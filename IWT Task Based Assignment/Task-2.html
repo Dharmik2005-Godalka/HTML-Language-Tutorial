@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue; 
+        }
+
+        h2 {
+            text-align: center;
+            padding-top: 20px;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #dbeafe;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .inputs {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            width: 80px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #tableContainer {
+            margin-top: 20px;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        table {
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #555;
+            padding: 6px;
+        }
+
+        input[type="text"] {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Dynamic Table Generator</h2>
+
+    <div class="inputs">
+        Rows: <input type="number" id="rows">
+        Columns: <input type="number" id="cols"><br>
+
+        <button onclick="createTable()">Generate Table</button>
+        <button onclick="validateTable()">Submit</button>
+    </div>
+
+    <div id="tableContainer"></div>
+
+</div>
+
+<script>
+
+function createTable() {
+    let rows = document.getElementById("rows").value;
+    let cols = document.getElementById("cols").value;
+
+    let table = "<table>";
+
+    for (let i = 0; i < rows; i++) {
+        table += "<tr>";
+        for (let j = 0; j < cols; j++) {
+            table += `<td><input type="text" class="cell"></td>`;
+        }
+        table += "</tr>";
+    }
+
+    table += "</table>";
+
+    document.getElementById("tableContainer").innerHTML = table;
+}
+
+function validateTable() {
+    let inputs = document.querySelectorAll(".cell");
+
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === "") {
+            alert("Please fill all fields!");
+            return;
+        }
+    }
+
+    alert("All fields filled successfully!");
+}
+
+</script>
+
+</body>
+</html>

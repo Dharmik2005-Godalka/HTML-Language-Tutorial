@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #dbeafe;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .hero img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        /* SECTION */
+        .section {
+            background: white;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        h2 {
+            border-bottom: 2px solid black;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .grid div {
+            background: #eee;
+            padding: 20px;
+            border: 1px solid black;
+            transition: 0.3s;
+        }
+
+        .grid div:hover {
+            background: #cbd5f5;
+        }
+
+        /* SKILLS */
+        .skill {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .bar {
+            background: #ddd;
+            height: 10px;
+        }
+
+        .fill {
+            background: #333;
+            height: 10px;
+        }
+
+        /* CONTACT */
+        input, textarea {
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="My Photo Link" alt="Photo">
+    <h1>Your Name</h1>
+    <p>In Learning Phase | Student At Marwadi University</p>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+    <h2>About Me</h2>
+    <p>I am a student learning many things at Marwadi university and building projects.</p>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+    <h2>Skills</h2>
+
+    <div class="skill">HTML
+        <div class="bar"><div class="fill" style="width:80%"></div></div>
+    </div>
+
+    <div class="skill">CSS
+        <div class="bar"><div class="fill" style="width:70%"></div></div>
+    </div>
+
+    <div class="skill">JavaScript
+        <div class="bar"><div class="fill" style="width:60%"></div></div>
+    </div>
+</div>
+
+<!-- WORK GRID -->
+<div class="section" id="work">
+    <h2>My Work</h2>
+
+    <div class="grid">
+        <div>Python Quiz App</div>
+        <div>Clipboard App</div>
+        <div>Helmet Detection</div>
+        <div>Birthday Reminder App</div>
+        <div>Smart Education Car</div>
+        <div>Internship Mangement Syatem</div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+    <h2>Contact</h2>
+
+    <input type="text" placeholder="Name"><br>
+    <input type="email" placeholder="Email"><br>
+    <textarea placeholder="Message"></textarea><br>
+    <button>Send</button>
+</div>
+
+<!-- MAP -->
+<div class="section">
+    <h2>Location</h2>
+
+    <iframe src="https://maps.google.com/maps?q=rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+</body>
+</html>

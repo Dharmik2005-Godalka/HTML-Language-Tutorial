@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GK Quiz</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #dbeafe;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        .box {
+            background: white;
+            width: 450px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        .option {
+            text-align: left;
+            margin: 8px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>GK Quiz</h1>
+
+<div class="box">
+
+    <p id="qno"></p>
+    <p id="question"></p>
+
+    <div id="options"></div>
+
+    <button id="btn" onclick="nextQ()">Next</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+
+var q = [
+    ["What is the Capital of the India?", "Mumbai", "Delhi", "Chennai", "Kolkata", "Delhi"],
+    ["Which planet is known as Red Planet?", "Earth", "Mars", "Jupiter", "Venus", "Mars"],
+    ["How many Continents are there?", "5", "6", "7", "8", "7"],
+    ["What is the Largest Ocean in the World?", "Atlantic", "Indian", "Pacific", "Arctic", "Pacific"]
+];
+
+var i = 0;
+var score = 0;
+
+function showQ() {
+    document.getElementById("qno").innerHTML = "Question " + (i + 1);
+    document.getElementById("question").innerHTML = q[i][0];
+
+    document.getElementById("options").innerHTML =
+        "<div class='option'><input type='radio' name='op' value='" + q[i][1] + "'>" + q[i][1] + "</div>" +
+        "<div class='option'><input type='radio' name='op' value='" + q[i][2] + "'>" + q[i][2] + "</div>" +
+        "<div class='option'><input type='radio' name='op' value='" + q[i][3] + "'>" + q[i][3] + "</div>" +
+        "<div class='option'><input type='radio' name='op' value='" + q[i][4] + "'>" + q[i][4] + "</div>";
+}
+
+function nextQ() {
+
+    var selected = document.querySelector('input[name="op"]:checked');
+
+    if (selected && selected.value == q[i][5]) {
+        score++;
+    }
+
+    i++;
+
+    if (i < q.length) {
+        showQ();
+    } else {
+        document.getElementById("question").innerHTML = "Quiz Finished";
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("qno").innerHTML = "";
+        document.getElementById("result").innerHTML =
+            "Score: " + score + " / " + q.length;
+
+        document.getElementById("btn").innerHTML = "Restart";
+        document.getElementById("btn").onclick = restartQuiz;
+    }
+}
+
+function restartQuiz() {
+    i = 0;
+    score = 0;
+
+    document.getElementById("btn").innerHTML = "Next";
+    document.getElementById("btn").onclick = nextQ;
+    document.getElementById("result").innerHTML = "";
+
+    showQ();
+}
+
+showQ();
+
+</script>
+
+</body>
+</html>
